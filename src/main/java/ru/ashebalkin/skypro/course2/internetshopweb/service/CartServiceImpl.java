@@ -9,7 +9,7 @@ import java.util.Map;
 @Service
 public class CartServiceImpl implements CartService {
 
-    private Cart cart;
+    private final Cart cart;
 
     public CartServiceImpl(Cart cart) {
         this.cart = cart;
@@ -19,18 +19,17 @@ public class CartServiceImpl implements CartService {
     public void putItemsToCart(ArrayList<Integer> idList) {
 
         for (Integer id : idList) {
-            if (cart.items.containsKey(id)) {
-                cart.items.put(id, cart.items.get(id) + 1);
+            if (cart.getItems().containsKey(id)) {
+                cart.getItems().put(id, cart.getItems().get(id) + 1);
             } else {
-                cart.items.put(id, 1);
+                cart.getItems().put(id, 1);
             }
         }
     }
 
     @Override
     public Map<Integer, Integer> getItemsFromCart() {
-//        Map<Integer, Integer> items = configurationClass.createCart();
-        return cart.items;
+        return cart.getItems();
     }
 
 }

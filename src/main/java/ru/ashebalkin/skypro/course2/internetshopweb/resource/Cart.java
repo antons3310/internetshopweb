@@ -1,20 +1,16 @@
 package ru.ashebalkin.skypro.course2.internetshopweb.resource;
 
-import javax.annotation.PostConstruct;
 import java.util.HashMap;
-import java.util.Map;
-
 
 public class Cart {
-    public HashMap<Integer, Integer> items;
-
-    @PostConstruct
-    public void serviceUP() {
-        System.out.println("Service!!!");
-    }
+    private final HashMap<Integer, Integer> items;
 
     public Cart() {
         this.items = new HashMap<>();
+        System.out.println("1");
     }
 
+    public HashMap<Integer, Integer> getItems() {
+        return items;
+    }
 }
